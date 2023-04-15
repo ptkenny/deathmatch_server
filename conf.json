@@ -1,0 +1,7 @@
+{
+    "encryption": true,
+    "maxplayers": 1000,
+    "name": "DM Domain",
+    "voice-chat": true,
+    "gamemode": "freeroam"
+}
