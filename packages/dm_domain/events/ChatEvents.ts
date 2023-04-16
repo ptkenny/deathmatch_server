@@ -1,4 +1,4 @@
-class PlayerChatGameEvent extends GameEvent {
+export class PlayerChatGameEvent extends GameEvent {
     name = "playerChat";
 
     execute(player: any, message: string) {

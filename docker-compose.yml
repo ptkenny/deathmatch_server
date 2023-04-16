@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 services:
     ragemp_server:
         build: .
@@ -8,11 +8,32 @@ services:
             - 22005:22005/udp
             - 22006:22006
         tty: true
+        depends_on:
+            - mysql
+        environment:
+            MYSQL_HOST: mysql
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USER: root
+            MYSQL_PASSWORD: password
+            MYSQL_DATABASE: deathmatch_server
+
+    mysql:
+        image: mysql:8.0
+        container_name: ragemp_mysql
+        logging: { driver: 'none' }
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USER: root
+            MYSQL_PASSWORD: password
+            MYSQL_DATABASE: deathmatch_server
         volumes:
-            - ./packages:/server/packages
-            - ./client_packages:/server/client_packages
+            - mysql-data:/var/lib/mysql
+        ports:
+            - 3307:3306
+
+volumes:
+    mysql-data:
 
 networks:
     default:
         name: ragemp_network
-        external: true

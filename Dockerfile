@@ -11,7 +11,7 @@ COPY packages/tsconfig.json ./
 RUN yarn tsc -p packages -jsx react
 
 # Stage 2: Create the final image
-FROM ubuntu:latest
+FROM --platform=linux/amd64 ubuntu:latest
 
 WORKDIR /server
 
@@ -20,6 +20,7 @@ COPY --from=builder /build /server
 
 # Delete all TypeScript files
 RUN find /server -type f -name "*.ts" -exec rm {} +
+RUN rm -rf ./packages/node_modules
 
 # Copy other necessary files
 COPY ./ragemp-srv /server
