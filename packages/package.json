@@ -9,10 +9,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "@types/ragemp-s": "github:CocaColaBear/types-ragemp-s#master"
+    "@ragempcommunity/types-server": "^2.1.1",
+    "@types/node": "^18.15.11"
   },
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
     "mysql2": "^3.2.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.31.0",
