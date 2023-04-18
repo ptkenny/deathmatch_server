@@ -1,7 +1,9 @@
 {
-    "encryption": true,
+    "encryption": false,
     "maxplayers": 1000,
     "name": "DM Domain",
     "voice-chat": true,
-    "gamemode": "freeroam"
+    "gamemode": "freeroam",
+    "disable-client-packages-ram-cache": true,
+    "create-fastdl-snapshot": true
 }
